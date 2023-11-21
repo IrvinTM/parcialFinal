@@ -4,6 +4,9 @@
  */
 package logica;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import interfaz.PantallaPrincipal;
 
 /**
@@ -24,11 +27,28 @@ public class Principal {
          PantallaPrincipal principal = new PantallaPrincipal();
             principal.setVisible(true);
 
-        Paciente paciente1 = new Paciente("Firulais", 5, 10, 0.5, "Perro", "Juan", "Chihuahua");
-       System.out.println(paciente1.toString());
+        //Paciente paciente1 = new Paciente("Firulais", 5, 10, 0.5, "Perro", "Juan", "Chihuahua");
+       
+        //Paciente paciente2 = new Paciente("Lunas", 3, 4.5, 0.4, "Gato", "María", "Siames");
+
+        //List<Paciente> pacientes = new ArrayList<>();
+        //pacientes.add(paciente2);
+       // pacientes.add(paciente1);
+
+        //for (Paciente paciente : pacientes) {
+       //     paciente.guardarPacienteCSV("pacientes.csv");
+       //}
+
+        //List<Paciente> pacientesRecuperados = Paciente.recuperarPacientesCSV("pacientes.csv");
+
+//for (Paciente paciente : pacientesRecuperados) {
+ //   System.out.println(paciente.toString());
+}
+
+
        
          
        
     }
     
-}
+
