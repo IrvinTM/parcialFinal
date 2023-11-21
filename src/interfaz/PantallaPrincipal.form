@@ -46,23 +46,23 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="349" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="233" max="-2" attributes="0"/>
+                          <Component id="pacientes_btn" min="-2" pref="233" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="349" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="233" max="-2" attributes="0"/>
+                          <Component id="citas_btn" min="-2" pref="233" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="349" max="-2" attributes="0"/>
-                          <Component id="jButton3" min="-2" pref="233" max="-2" attributes="0"/>
+                          <Component id="expedientes_btn" min="-2" pref="233" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="349" max="-2" attributes="0"/>
-                          <Component id="jButton4" min="-2" pref="233" max="-2" attributes="0"/>
+                          <Component id="vacunas_btn" min="-2" pref="233" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="349" max="-2" attributes="0"/>
-                          <Component id="jButton5" min="-2" pref="233" max="-2" attributes="0"/>
+                          <Component id="salir_btn" min="-2" pref="233" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="396" max="32767" attributes="0"/>
@@ -75,15 +75,15 @@
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="82" max="-2" attributes="0"/>
+                  <Component id="pacientes_btn" min="-2" pref="82" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" pref="82" max="-2" attributes="0"/>
+                  <Component id="citas_btn" min="-2" pref="82" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton3" min="-2" pref="82" max="-2" attributes="0"/>
+                  <Component id="expedientes_btn" min="-2" pref="82" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton4" min="-2" pref="82" max="-2" attributes="0"/>
+                  <Component id="vacunas_btn" min="-2" pref="82" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButton5" min="-2" pref="82" max="-2" attributes="0"/>
+                  <Component id="salir_btn" min="-2" pref="82" max="-2" attributes="0"/>
                   <EmptySpace pref="36" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -98,7 +98,7 @@
             <Property name="text" type="java.lang.String" value="Bienvenido"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="pacientes_btn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Liberation Sans" size="24" style="0"/>
@@ -106,10 +106,10 @@
             <Property name="text" type="java.lang.String" value="Pacientes"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pacientes_btnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="citas_btn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Liberation Sans" size="24" style="0"/>
@@ -117,10 +117,10 @@
             <Property name="text" type="java.lang.String" value="Citas"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="citas_btnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="expedientes_btn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Liberation Sans" size="24" style="0"/>
@@ -128,10 +128,10 @@
             <Property name="text" type="java.lang.String" value="Epedientes"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="expedientes_btnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
+        <Component class="javax.swing.JButton" name="vacunas_btn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Liberation Sans" size="24" style="0"/>
@@ -139,10 +139,10 @@
             <Property name="text" type="java.lang.String" value="Vacunas"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vacunas_btnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton5">
+        <Component class="javax.swing.JButton" name="salir_btn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Liberation Sans" size="24" style="0"/>
@@ -150,7 +150,7 @@
             <Property name="text" type="java.lang.String" value="Salir"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salir_btnActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

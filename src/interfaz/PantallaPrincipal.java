@@ -28,54 +28,54 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        pacientes_btn = new javax.swing.JButton();
+        citas_btn = new javax.swing.JButton();
+        expedientes_btn = new javax.swing.JButton();
+        vacunas_btn = new javax.swing.JButton();
+        salir_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 36)); // NOI18N
         jLabel1.setText("Bienvenido");
 
-        jButton1.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        jButton1.setText("Pacientes");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        pacientes_btn.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        pacientes_btn.setText("Pacientes");
+        pacientes_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                pacientes_btnActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        jButton2.setText("Citas");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        citas_btn.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        citas_btn.setText("Citas");
+        citas_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                citas_btnActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        jButton3.setText("Epedientes");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        expedientes_btn.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        expedientes_btn.setText("Epedientes");
+        expedientes_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                expedientes_btnActionPerformed(evt);
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        jButton4.setText("Vacunas");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        vacunas_btn.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        vacunas_btn.setText("Vacunas");
+        vacunas_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                vacunas_btnActionPerformed(evt);
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        jButton5.setText("Salir");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        salir_btn.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        salir_btn.setText("Salir");
+        salir_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                salir_btnActionPerformed(evt);
             }
         });
 
@@ -90,19 +90,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(349, 349, 349)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pacientes_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(349, 349, 349)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(citas_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(349, 349, 349)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(expedientes_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(349, 349, 349)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(vacunas_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(349, 349, 349)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(salir_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(396, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -111,15 +111,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pacientes_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(citas_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(expedientes_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(vacunas_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(salir_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -137,25 +137,28 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void pacientes_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pacientes_btnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        PantallaPacientes pantallaPacientes = new PantallaPacientes();
+        pantallaPacientes.setVisible(true);
+        
+    }//GEN-LAST:event_pacientes_btnActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void citas_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_citas_btnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_citas_btnActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void expedientes_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expedientes_btnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_expedientes_btnActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void vacunas_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vacunas_btnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_vacunas_btnActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void salir_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salir_btnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_salir_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,12 +197,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton citas_btn;
+    private javax.swing.JButton expedientes_btn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton pacientes_btn;
+    private javax.swing.JButton salir_btn;
+    private javax.swing.JButton vacunas_btn;
     // End of variables declaration//GEN-END:variables
 }
