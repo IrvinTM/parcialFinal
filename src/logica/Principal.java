@@ -4,6 +4,9 @@
  */
 package logica;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import interfaz.PantallaPrincipal;
 
 /**
@@ -24,6 +27,23 @@ public class Principal {
          PantallaPrincipal principal = new PantallaPrincipal();
             principal.setVisible(true);
 
+           /*  Paciente paciente1 = new Paciente("Firu", 5, 2,
+             2, "perro", "Chepe", "Comelona");
+
+            Cita cita1 = new Cita("2023-01-01", "10:00", 
+            "Dr. López",paciente1 , "Vacunación");
+        
+            Cita cita2 = new Cita("2023-01-02", "15:30",
+         "Dra. García", paciente1, "Chequeo anual");
+
+        // Crear una lista de citas
+        List<Cita> listaCitas = new ArrayList<>();
+        listaCitas.add(cita1);
+        listaCitas.add(cita2);
+
+        // Llamar al método para guardar en CSV
+        Cita.guardarCitasEnCSV(listaCitas, "citas.csv");*/
+
         //Paciente paciente1 = new Paciente("Firulais", 5, 10, 0.5, "Perro", "Juan", "Chihuahua");
        
         //Paciente paciente2 = new Paciente("Lunas", 3, 4.5, 0.4, "Gato", "María", "Siames");
@@ -40,12 +60,17 @@ public class Principal {
 
 //for (Paciente paciente : pacientesRecuperados) {
  //   System.out.println(paciente.toString());
+
+//leer las citas
+List<Cita> citas = Cita.cargarCitasDesdeCSV("citas.csv");
+
+        // Imprimir las citas (esto es solo un ejemplo, puedes hacer lo que necesites con las citas)
+        for (Cita cita : citas) {
+            System.out.println(cita);
+
+}
+    }
 }
 
-
-       
-         
-       
-    }
     
 
