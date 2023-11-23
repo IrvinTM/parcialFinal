@@ -31,6 +31,17 @@ public class Paciente {
         this.nombreDueno = nombreDueno;
         this.raza = raza;
     }
+    public Paciente(int id,String nombre, int edad, double peso, double altura,
+     String tipoMascota, String nombreDueno, String raza) {
+        this.id = id; // Generar un ID único
+        this.nombre = nombre;
+        this.edad = edad;
+        this.peso = peso;
+        this.altura = altura;
+        this.tipoMascota = tipoMascota;
+        this.nombreDueno = nombreDueno;
+        this.raza = raza;
+    }
 
     // Getters y setters para todos los atributos
 

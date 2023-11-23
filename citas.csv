@@ -1,3 +1,3 @@
-ID,Fecha,Hora,Veterinario,Mascota,Motivo
-1,2023-01-01,10:00,Dr. López,Mascota{id=1, nombre='Boby', edad=5, peso=2.0, altura=2.0, tipoMascota='perro', nombreDueno='Chepe', raza='Comelona'},Vacunación
-2,2023-01-02,15:30,Dra. García,Mascota{id=1, nombre='Firu', edad=5, peso=2.0, altura=2.0, tipoMascota='perro', nombreDueno='Chepe', raza='Comelona'},Chequeo anual
+ID,Fecha,Hora,Veterinario,Mascota id,Motivo
+1,2023-01-01,10:00,Dr. López,1,Vacunación
+2,2023-01-02,15:30,Dra. García,1,Chequeo anual

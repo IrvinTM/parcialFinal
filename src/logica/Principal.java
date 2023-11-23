@@ -62,13 +62,7 @@ public class Principal {
  //   System.out.println(paciente.toString());
 
 //leer las citas
-List<Cita> citas = Cita.cargarCitasDesdeCSV("citas.csv");
 
-        // Imprimir las citas (esto es solo un ejemplo, puedes hacer lo que necesites con las citas)
-        for (Cita cita : citas) {
-            System.out.println(cita);
-
-}
     }
 }
 

@@ -146,18 +146,25 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void citas_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_citas_btnActionPerformed
         // TODO add your handling code here:
+        PantallaCita pantallaCitas = new PantallaCita();
+        pantallaCitas.setVisible(true);
     }//GEN-LAST:event_citas_btnActionPerformed
 
     private void expedientes_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expedientes_btnActionPerformed
         // TODO add your handling code here:
+        PantallaExpediente pantallaExpediente = new PantallaExpediente();
+        pantallaExpediente.setVisible(true);
     }//GEN-LAST:event_expedientes_btnActionPerformed
 
     private void vacunas_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vacunas_btnActionPerformed
         // TODO add your handling code here:
+        PantallaVacuna pantallaVacuna = new PantallaVacuna();
+        pantallaVacuna.setVisible(true);
     }//GEN-LAST:event_vacunas_btnActionPerformed
 
     private void salir_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salir_btnActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_salir_btnActionPerformed
 
     /**
