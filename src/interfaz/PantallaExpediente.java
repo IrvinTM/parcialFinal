@@ -4,6 +4,16 @@
  */
 package interfaz;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.DefaultComboBoxModel;
+
+import logica.Paciente;
+
 /**
  *
  * @author irvin
@@ -15,6 +25,7 @@ public class PantallaExpediente extends javax.swing.JFrame {
      */
     public PantallaExpediente() {
         initComponents();
+        llenarComboBoxPacientes();
     }
 
     /**
@@ -27,14 +38,14 @@ public class PantallaExpediente extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        mascota_comboBox = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        mascota_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton1.setText("Generar Expediente");
 
@@ -52,7 +63,7 @@ public class PantallaExpediente extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(384, 384, 384)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mascota_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -71,7 +82,7 @@ public class PantallaExpediente extends javax.swing.JFrame {
                 .addGap(90, 90, 90)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mascota_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 269, Short.MAX_VALUE))
@@ -94,47 +105,62 @@ public class PantallaExpediente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void llenarComboBoxPacientes() {
+        // Cargar la lista de pacientes desde el archivo "pacientes.csv"
+        List<Paciente> pacientes = cargarPacientesDesdeCSV("pacientes.csv");
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaExpediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaExpediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaExpediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaExpediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        // Crear un array de String para almacenar los nombres de los pacientes
+        String[] nombresPacientes = new String[pacientes.size()];
+
+        // Llenar el array con los nombres de los pacientes
+        for (int i = 0; i < pacientes.size(); i++) {
+            nombresPacientes[i] = pacientes.get(i).getNombre();
         }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PantallaExpediente().setVisible(true);
-            }
-        });
+        // Crear un modelo para el JComboBox y establecerlo en el JComboBox
+        DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>(nombresPacientes);
+        mascota_comboBox.setModel(comboBoxModel);
     }
+    private List<Paciente> cargarPacientesDesdeCSV(String nombreArchivo) {
+        List<Paciente> pacientes = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo))) {
+            String linea;
+            boolean primeraLinea = true;  // Para omitir la primera línea (encabezados)
+            while ((linea = reader.readLine()) != null) {
+                if (primeraLinea) {
+                    primeraLinea = false;
+                    continue;
+                }
+
+                String[] campos = linea.split(",");
+                int idPaciente = Integer.parseInt(campos[0]);
+                String nombre = campos[1];
+                int edad = Integer.parseInt(campos[2]);
+                double precio = Double.parseDouble(campos[3]);
+                double descuento = Double.parseDouble(campos[4]);
+                String especie = campos[5];
+                String dueno = campos[6];
+                String raza = campos[7];
+
+                // Crear el objeto Paciente y agregarlo a la lista
+                Paciente paciente = new Paciente(idPaciente, nombre, edad, precio, descuento, especie, dueno, raza);
+                pacientes.add(paciente);
+            }
+
+        } catch (IOException | NumberFormatException e) {
+            e.printStackTrace();
+        }
+
+        return pacientes;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> mascota_comboBox;
     // End of variables declaration//GEN-END:variables
 }

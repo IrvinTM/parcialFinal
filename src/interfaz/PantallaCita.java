@@ -2,8 +2,11 @@
 package interfaz;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -210,6 +213,15 @@ public class PantallaCita extends javax.swing.JFrame {
 
     private void agregar_btnActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
+        // Obtener los datos de la cita desde los campos de texto
+        String fecha = fecha_textfield.getText();
+        String hora = hora_textfield.getText();
+        String veterinario = veterinario_textfield.getText();
+        int idMascota = mascota_comboBox.getSelectedIndex() + 1;  // ID de la mascota seleccionada
+        String motivo = motivo_texfield.getText();
+        Cita nuevaCita = new Cita(fecha, hora, veterinario, null, motivo);
+
+
     }                                           
 
     private void mostrarCitas_btnActionPerformed(java.awt.event.ActionEvent evt) {                                                 
@@ -368,6 +380,29 @@ private Paciente buscarPacientePorId(int id, String nombreArchivo) {
 
     return null;  // Devolver null si no se encuentra el paciente
 }
+
+    private void agregarCitaAlCSV(Cita nuevaCita, String nombreArchivo) {
+        try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(nombreArchivo, true)))) {
+            // Obtener los detalles de la nueva cita
+            int id = nuevaCita.getId();
+            String fecha = nuevaCita.getFecha();
+            String hora = nuevaCita.getHora();
+            String veterinario = nuevaCita.getVeterinario();
+            int idMascota = nuevaCita.getMascota().getId();  // Obtener el ID de la mascota
+            String motivo = nuevaCita.getMotivo();
+
+            // Agregar la nueva cita al archivo CSV
+            writer.println(id + "," + fecha + "," + hora + "," + veterinario + "," + idMascota + "," + motivo);
+
+            // Mostrar un mensaje de éxito
+            System.out.println("Cita agregada correctamente al archivo " + nombreArchivo);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Mostrar un mensaje de error 
+            System.err.println("Error al agregar la cita al archivo " + nombreArchivo);
+        }
+    }
 
 
 

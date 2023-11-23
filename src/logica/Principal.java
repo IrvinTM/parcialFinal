@@ -4,9 +4,6 @@
  */
 package logica;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import interfaz.PantallaPrincipal;
 
 /**
@@ -61,7 +58,6 @@ public class Principal {
 //for (Paciente paciente : pacientesRecuperados) {
  //   System.out.println(paciente.toString());
 
-//leer las citas
 
     }
 }
