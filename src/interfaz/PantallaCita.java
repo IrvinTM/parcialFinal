@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 import logica.Cita;
@@ -23,6 +24,8 @@ public class PantallaCita extends javax.swing.JFrame {
      */
     public PantallaCita() {
         initComponents();
+        llenarComboBoxPacientes();
+        mostrarCitas();
     }
 
     /**
@@ -52,7 +55,7 @@ public class PantallaCita extends javax.swing.JFrame {
         mascota_comboBox = new javax.swing.JComboBox<>();
         agregar_btn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
 
         mostrarCitas_btn.setText("Actualizar");
         mostrarCitas_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -213,7 +216,60 @@ public class PantallaCita extends javax.swing.JFrame {
         // TODO add your handling code here:
         mostrarCitas();
 
-    }                                                
+    }   
+    
+    private void llenarComboBoxPacientes() {
+        // Cargar la lista de pacientes desde el archivo "pacientes.csv"
+        List<Paciente> pacientes = cargarPacientesDesdeCSV("pacientes.csv");
+
+        // Crear un array de String para almacenar los nombres de los pacientes
+        String[] nombresPacientes = new String[pacientes.size()];
+
+        // Llenar el array con los nombres de los pacientes
+        for (int i = 0; i < pacientes.size(); i++) {
+            nombresPacientes[i] = pacientes.get(i).getNombre();
+        }
+
+        // Crear un modelo para el JComboBox y establecerlo en el JComboBox
+        DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>(nombresPacientes);
+        mascota_comboBox.setModel(comboBoxModel);
+    }
+    private List<Paciente> cargarPacientesDesdeCSV(String nombreArchivo) {
+        List<Paciente> pacientes = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo))) {
+            String linea;
+            boolean primeraLinea = true;  // Para omitir la primera línea (encabezados)
+            while ((linea = reader.readLine()) != null) {
+                if (primeraLinea) {
+                    primeraLinea = false;
+                    continue;
+                }
+
+                String[] campos = linea.split(",");
+                int idPaciente = Integer.parseInt(campos[0]);
+                String nombre = campos[1];
+                int edad = Integer.parseInt(campos[2]);
+                double precio = Double.parseDouble(campos[3]);
+                double descuento = Double.parseDouble(campos[4]);
+                String especie = campos[5];
+                String dueno = campos[6];
+                String raza = campos[7];
+
+                // Crear el objeto Paciente y agregarlo a la lista
+                Paciente paciente = new Paciente(idPaciente, nombre, edad, precio, descuento, especie, dueno, raza);
+                pacientes.add(paciente);
+            }
+
+        } catch (IOException | NumberFormatException e) {
+            e.printStackTrace();
+        }
+
+        return pacientes;
+    }
+
+
+    
 
         private void mostrarCitas() {
     // Definir el modelo de la tabla

@@ -23,6 +23,7 @@ public class PantallaPacientes extends javax.swing.JFrame {
      */
     public PantallaPacientes() {
         initComponents();
+        mostrarPacientes();
     }
 
     /**
@@ -56,7 +57,7 @@ public class PantallaPacientes extends javax.swing.JFrame {
         raza_textfield = new javax.swing.JTextField();
         agregarPaciente_btn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
 
         mostrar_btn.setText("Actualizar");
         mostrar_btn.addActionListener(new java.awt.event.ActionListener() {
