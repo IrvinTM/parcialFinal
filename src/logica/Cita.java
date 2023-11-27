@@ -18,19 +18,30 @@ import java.util.concurrent.atomic.AtomicInteger;
         private String fecha;
         private String hora;
         private String veterinario;
-        private Paciente mascota;
         private String motivo;
+        private int idMascota;
 
-        public Cita(String fecha, String hora, String veterinario, Paciente mascota, String motivo) {
+
+        public Cita(String fecha, String hora, String veterinario, int idMascota, String motivo) {
             this.id = contadorId.incrementAndGet();
             this.fecha = fecha;
             this.hora = hora;
             this.veterinario = veterinario;
-            this.mascota = mascota;
+            this.idMascota = idMascota;
             this.motivo = motivo;
         }
 
+        
+
         // Getters y setters para todos los atributos
+
+        public int getIdMascota() {
+            return idMascota;
+        }
+
+        public void setIdMascota(int idMascota) {
+            this.idMascota = idMascota;
+        }
 
         public int getId() {
             return id;
@@ -48,9 +59,6 @@ import java.util.concurrent.atomic.AtomicInteger;
             return veterinario;
         }
 
-        public Paciente getMascota() {
-            return mascota;
-        }
 
         public String getMotivo() {
             return motivo;
@@ -62,31 +70,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 
         @Override
         public String toString() {
-            return "Cita [id=" + id + ", fecha=" + fecha + ", hora=" + hora + ", veterinario=" + veterinario + ", mascota="
-                    + mascota + ", motivo=" + motivo + "]";
+            return "Cita{" + "id=" + id + ", fecha=" + fecha + ", hora=" + hora + ", veterinario=" + veterinario + ", motivo=" + motivo + ", idMascota=" + idMascota + '}';
         }
 
-        public static void guardarCitasEnCSV(List<Cita> citas, String rutaArchivo) {
-        try (FileWriter writer = new FileWriter(rutaArchivo)) {
-            // Escribir encabezados
-            writer.write("ID,Fecha,Hora,Veterinario,Mascota,Motivo\n");
 
-            // Escribir datos de citas
-            for (Cita cita : citas) {
-                writer.write(String.format("%d,%s,%s,%s,%s,%s\n",
-                        cita.getId(),
-                        cita.getFecha(),
-                        cita.getHora(),
-                        cita.getVeterinario(),
-                        cita.getMascota().toString(),
-                        cita.getMotivo()));
-            }
-
-            System.out.println("Datos guardados en " + rutaArchivo);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+        
+    
 
 }
 

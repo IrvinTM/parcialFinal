@@ -1,3 +1,8 @@
 ID,Fecha,Hora,Veterinario,Mascota id,Motivo
 1,2023-01-01,10:00,Dr. López,1,Vacunación
 2,2023-01-02,15:30,Dra. García,1,Chequeo anual
+3,2023-01-10,10:00,Dr. López,2,Vacunación
+4,2023-01-10,11:30,Dr. Pérez,3,Desparasitación
+5,2023-01-15,17:00,Dra. Martínez,4,Vacunación
+6,2023-01-16,10:00,Dr. López,1,Control
+7,12 de agosto 2024,12 pm,Dr. Armando Chapatin,7,Vacunas

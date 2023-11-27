@@ -233,7 +233,8 @@ public class PantallaPacientes extends javax.swing.JFrame {
 
     private void agregarPaciente_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPaciente_btnActionPerformed
         // TODO add your handling code here:
-        String nombre = nombre_textfield.getText();
+        try {
+            String nombre = nombre_textfield.getText();
         int edad = Integer.parseInt(edad_textfield.getText());
         double peso = Double.parseDouble(peso_textfield.getText());
         double altura = Double.parseDouble(altura_textfield.getText());
@@ -241,6 +242,13 @@ public class PantallaPacientes extends javax.swing.JFrame {
         String nombreDueno = nombreDeDueno_textfield.getText();
         String raza = raza_textfield.getText();
         Paciente paciente = new Paciente(nombre, edad, peso, altura, tipoMascota, nombreDueno, raza);
+        if (nombre_textfield.getText().isEmpty() || edad_textfield.getText().isEmpty() ||
+         peso_textfield.getText().isEmpty() || altura_textfield.getText().isEmpty() || 
+         tipoMascota_textfield.getText().isEmpty() || nombreDeDueno_textfield.getText().isEmpty() ||
+          raza_textfield.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor llene todos los campos");
+            
+        }
         paciente.guardarPacienteCSV("pacientes.csv");
         //limpiar los campos
         nombre_textfield.setText("");
@@ -251,6 +259,14 @@ public class PantallaPacientes extends javax.swing.JFrame {
         nombreDeDueno_textfield.setText("");
         raza_textfield.setText("");
         JOptionPane.showMessageDialog(this, "Paciente agregado correctamente");
+
+        
+            
+        } catch (Exception e) {
+            // TODO: handle exception
+            JOptionPane.showMessageDialog(this, "Error, campos incorrectos");
+        }
+        
         
     }//GEN-LAST:event_agregarPaciente_btnActionPerformed
 

@@ -5,3 +5,5 @@ id,nombre,edad,precio,descuento,especie,dueno,raza
 1,Firulais,5,10.00,0.50,Perro,Juan,Chihuahua
 5,Viejito,12,1.00,0.50,perro,Irvin,Aguacatero
 11,Pinti,1,3.00,12.00,perro,Kevin,Trapeador
+7,Sparky,4,0.10,0.50,perro,Jose Lopez,Pitbull
+8,Oso,3,2.00,5.00,Perro,Sara Mojica,Pitbull
