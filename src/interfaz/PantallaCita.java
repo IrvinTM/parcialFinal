@@ -116,7 +116,7 @@ public class PantallaCita extends javax.swing.JFrame {
 
         jLabel3.setText("Veterinario:");
 
-        jLabel4.setText("Mascota:");
+        jLabel4.setText("ID Mascota:");
 
         jLabel5.setText("Motivo:");
 

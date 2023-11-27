@@ -11,13 +11,13 @@ package logica;
     public class Vacuna {
     private String fechaVacuna;
     private String nombreVacuna;
-    private Paciente paciente;
+    private int idPaciente;
 
     // Constructor para inicializar los atributos
-    public Vacuna(String fechaVacuna, String nombreVacuna, Paciente paciente) {
+    public Vacuna(String fechaVacuna, String nombreVacuna, int idPaciente) {
         this.fechaVacuna = fechaVacuna;
         this.nombreVacuna = nombreVacuna;
-        this.paciente = paciente;
+        this.idPaciente = idPaciente;
     }
 
     // Métodos para obtener y establecer información
@@ -37,11 +37,11 @@ package logica;
         this.nombreVacuna = nombreVacuna;
     }
 
-    public Paciente getPaciente() {
-        return paciente;
+    public int getidPaciente() {
+        return idPaciente;
     }
 
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
+    public void setidPaciente(int idPaciente) {
+        this.idPaciente = idPaciente;
     }
 }
