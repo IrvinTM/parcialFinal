@@ -12,7 +12,10 @@ import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 
+import logica.Cita;
+import logica.Expediente;
 import logica.Paciente;
+import logica.Vacuna;
 
 /**
  *
@@ -26,6 +29,8 @@ public class PantallaExpediente extends javax.swing.JFrame {
     public PantallaExpediente() {
         initComponents();
         llenarComboBoxPacientes();
+        this.setLocationRelativeTo(null);//centrar el jframe
+
     }
 
     /**
@@ -39,20 +44,31 @@ public class PantallaExpediente extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         mascota_comboBox = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        generarEpediente_btn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
 
         mascota_comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton1.setText("Generar Expediente");
+        generarEpediente_btn.setText("Generar Expediente");
+        generarEpediente_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generarEpediente_btnActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setText("Elija la mascota");
+        jLabel1.setText("Elija el ID de la mascota:");
 
         jLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 36)); // NOI18N
         jLabel2.setText("Expedientes");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -61,31 +77,33 @@ public class PantallaExpediente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(384, 384, 384)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(392, 392, 392)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(mascota_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(1, 1, 1))))
+                                .addGap(24, 24, 24)
+                                .addComponent(generarEpediente_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(403, 403, 403)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(457, Short.MAX_VALUE))
+                        .addGap(257, 257, 257)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(249, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addComponent(mascota_comboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 269, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(generarEpediente_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -105,20 +123,31 @@ public class PantallaExpediente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void generarEpediente_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarEpediente_btnActionPerformed
+        // TODO add your handling code here:
+        Paciente paciente = buscarPacientePorID(Integer.parseInt(mascota_comboBox.getSelectedItem().toString()));
+        List<Cita> citasPaciente = buscarCitasPorIDPaciente(Integer.parseInt(mascota_comboBox.getSelectedItem().toString()));
+        List<Vacuna> vacunasPaciente = buscarVacunasPorIDPaciente(Integer.parseInt(mascota_comboBox.getSelectedItem().toString()));
+        Expediente expediente = new Expediente(paciente, citasPaciente, vacunasPaciente);
+        jTextArea1.setText(expediente.mostrarExpediente());
+
+
+    }//GEN-LAST:event_generarEpediente_btnActionPerformed
     private void llenarComboBoxPacientes() {
         // Cargar la lista de pacientes desde el archivo "pacientes.csv"
         List<Paciente> pacientes = cargarPacientesDesdeCSV("pacientes.csv");
-
-        // Crear un array de String para almacenar los nombres de los pacientes
-        String[] nombresPacientes = new String[pacientes.size()];
-
-        // Llenar el array con los nombres de los pacientes
+    
+        // Crear un array de String para almacenar los IDs de los pacientes
+        String[] idsPacientes = new String[pacientes.size()];
+    
+        // Llenar el array con los IDs de los pacientes
         for (int i = 0; i < pacientes.size(); i++) {
-            nombresPacientes[i] = pacientes.get(i).getNombre();
+            idsPacientes[i] = String.valueOf(pacientes.get(i).getId());
         }
-
+    
         // Crear un modelo para el JComboBox y establecerlo en el JComboBox
-        DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>(nombresPacientes);
+        DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>(idsPacientes);
         mascota_comboBox.setModel(comboBoxModel);
     }
     private List<Paciente> cargarPacientesDesdeCSV(String nombreArchivo) {
@@ -155,12 +184,113 @@ public class PantallaExpediente extends javax.swing.JFrame {
         return pacientes;
     }
 
+    public Paciente buscarPacientePorID(int idPaciente) {
+       List<Paciente> pacientes = cargarPacientesDesdeCSV("pacientes.csv");
+
+        for (Paciente paciente : pacientes) {
+            if (paciente.getId() == idPaciente) {
+                return paciente;
+            }
+        }
+        return null;  // Retorna null si no se encuentra el paciente con el ID dado
+    }
+
+    public List<Cita> buscarCitasPorIDPaciente(int idPaciente) {
+        List<Cita> citas = cargarCitasDesdeCSV("citas.csv");  // Aseguramos que la lista de citas esté cargada
+        List<Cita> citasPaciente = new ArrayList<>();
+
+        for (Cita cita : citas) {
+            if (cita.getIdMascota() == idPaciente) {
+                citasPaciente.add(cita);
+            }
+        }
+
+        return citasPaciente;
+    }
+
+    // Método para cargar citas desde CSV y retornar la lista de citas
+    private List<Cita> cargarCitasDesdeCSV(String nombreArchivo) {
+        List<Cita> citas = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo))) {
+            String linea;
+            boolean primeraLinea = true;  // Para omitir la primera línea (encabezados)
+            while ((linea = reader.readLine()) != null) {
+                if (primeraLinea) {
+                    primeraLinea = false;
+                    continue;
+                }
+
+                String[] campos = linea.split(",");
+                String fecha = campos[1];
+                String hora = campos[2];
+                String veterinario = campos[3];
+                int idPaciente = Integer.parseInt(campos[4]);
+                String motivo = campos[5];
+
+                // Crear el objeto Cita y agregarlo a la lista
+                Cita cita = new Cita( fecha, hora, veterinario, idPaciente, motivo);
+                citas.add(cita);
+            }
+
+        } catch (IOException | NumberFormatException e) {
+            e.printStackTrace();
+        }
+
+        return citas;
+    }
+
+    public List<Vacuna> buscarVacunasPorIDPaciente(int idPaciente) {
+        List<Vacuna> vacunas = cargarVacunasDesdeCSV("vacunas.csv");  // Aseguramos que la lista de vacunas esté cargada
+        List<Vacuna> vacunasPaciente = new ArrayList<>();
+
+        for (Vacuna vacuna : vacunas) {
+            if (vacuna.getidPaciente() == idPaciente) {
+                vacunasPaciente.add(vacuna);
+            }
+        }
+
+        return vacunasPaciente;
+    }
+
+    // Método para cargar vacunas desde CSV y retornar la lista de vacunas
+    private List<Vacuna> cargarVacunasDesdeCSV(String nombreArchivo) {
+        List<Vacuna> vacunas = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo))) {
+            String linea;
+            boolean primeraLinea = true;  // Para omitir la primera línea (encabezados)
+            while ((linea = reader.readLine()) != null) {
+                if (primeraLinea) {
+                    primeraLinea = false;
+                    continue;
+                }
+
+                String[] campos = linea.split(",");
+                String fechaVacuna = campos[0];
+                String nombreVacuna = campos[1];
+                int idPaciente = Integer.parseInt(campos[2]);
+
+                // Crear el objeto Vacuna y agregarlo a la lista
+                Vacuna vacuna = new Vacuna(fechaVacuna, nombreVacuna, idPaciente);
+                vacunas.add(vacuna);
+            }
+
+        } catch (IOException | NumberFormatException e) {
+            e.printStackTrace();
+        }
+
+        return vacunas;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton generarEpediente_btn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JComboBox<String> mascota_comboBox;
     // End of variables declaration//GEN-END:variables
 }

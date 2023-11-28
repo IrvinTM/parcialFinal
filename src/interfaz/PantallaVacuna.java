@@ -32,6 +32,7 @@ import logica.Vacuna;
             initComponents();
             cargarYMostrarVacunasDesdeCSV("vacunas.csv");
             llenarComboBoxPacientes();
+            this.setLocationRelativeTo(null);//centrar el jframe
         }
 
         /**

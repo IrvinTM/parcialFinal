@@ -1,75 +1,76 @@
 
 package logica;
 
-import java.util.UUID;
+import java.util.List;
+
 
 public class Expediente {
-    private UUID id;
-    private Paciente mascota;
-    private Cita cita; // Nuevo atributo para el ID de la cita
-    private String diagnostico;
-    private String fecha;
-    private String veterinario;
-    private double precioConsulta;
+    // Atributos existentes
 
-    public Expediente(Paciente mascota, Cita cita, String diagnostico, String veterinario, double precioConsulta) {
-        this.id = UUID.randomUUID(); // Generar un ID único
-        this.mascota = mascota;
-        this.cita = cita;
-        this.diagnostico = diagnostico;
-        this.fecha = new String(); // Fecha actual
-        this.veterinario = veterinario;
-        this.precioConsulta = precioConsulta;
+    private Paciente paciente;
+    private List<Cita> citas;
+    private List<Vacuna> vacunas;
+    
+
+    public Expediente(Paciente paciente, List<Cita> citas, List<Vacuna> vacunas) {
+        // Inicializar atributos existentes
+        // ...
+
+        this.citas = citas;
+        this.vacunas = vacunas;
+        this.paciente = paciente;
     }
 
-    // Getters y setters para todos los atributos
-
-    public UUID getId() {
-        return id;
+    public List<Cita> getCitas() {
+        return citas;
     }
 
-    public Paciente getMascota() {
-        return mascota;
+    public void setCitas(List<Cita> citas) {
+        this.citas = citas;
     }
 
-    public String getDiagnostico() {
-        return diagnostico;
-    }
-    public Cita getCita() {
-        return cita;
+    public List<Vacuna> getVacunas() {
+        return vacunas;
     }
 
-    public void setCita(Cita cita) {
-        this.cita = cita;
+    public void setVacunas(List<Vacuna> vacunas) {
+        this.vacunas = vacunas;
     }
 
-    public void setDiagnostico(String diagnostico) {
-        this.diagnostico = diagnostico;
+    public Paciente getPaciente() {
+        return paciente;
     }
 
-    public String getFecha() {
-        return fecha;
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
 
-    public String getVeterinario() {
-        return veterinario;
-    }
+    public String mostrarExpediente() {
+        StringBuilder expedienteInfo = new StringBuilder();
 
-    public void setVeterinario(String veterinario) {
-        this.veterinario = veterinario;
-    }
+        expedienteInfo.append("Información del Expediente:\n");
+        expedienteInfo.append("Paciente: ").append(paciente.getNombre()).append("\n");
+        expedienteInfo.append("Edad: ").append(paciente.getEdad()).append("\n");
+        expedienteInfo.append("Especie: ").append(paciente.getRaza()).append("\n");
+        expedienteInfo.append("Dueño: ").append(paciente.getNombreDueno()).append("\n");
+        expedienteInfo.append("Raza: ").append(paciente.getRaza()).append("\n\n");
 
-    public double getPrecioConsulta() {
-        return precioConsulta;
-    }
+        expedienteInfo.append("Citas:\n");
+        for (Cita cita : citas) {
+            expedienteInfo.append("ID de Cita: ").append(cita.getId()).append("\n");
+            expedienteInfo.append("Fecha y Hora: ").append(cita.getFecha()).append(", ").append(cita.getHora()).append("\n");
+            expedienteInfo.append("Veterinario: ").append(cita.getVeterinario()).append("\n");
+            expedienteInfo.append("Motivo: ").append(cita.getMotivo()).append("\n\n");
+        }
 
-    public void setPrecioConsulta(double precioConsulta) {
-        this.precioConsulta = precioConsulta;
-    }
+        expedienteInfo.append("Vacunas:\n");
+        for (Vacuna vacuna : vacunas) {
+            expedienteInfo.append("Fecha de Vacuna: ").append(vacuna.getFechaVacuna()).append("\n");
+            expedienteInfo.append("Nombre de Vacuna: ").append(vacuna.getNombreVacuna()).append("\n");
+            expedienteInfo.append("ID de Paciente: ").append(vacuna.getidPaciente()).append("\n\n");
+        }
 
-    @Override
-    public String toString() {
-        return "Expediente [cita=" + cita + ", diagnostico=" + diagnostico + ", fecha=" + fecha + ", id=" + id
-                + ", mascota=" + mascota + ", precioConsulta=" + precioConsulta + ", veterinario=" + veterinario + "]";
+        return expedienteInfo.toString();
     }
 }
+

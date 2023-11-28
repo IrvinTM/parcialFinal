@@ -44,4 +44,9 @@ package logica;
     public void setidPaciente(int idPaciente) {
         this.idPaciente = idPaciente;
     }
+
+    @Override
+    public String toString() {
+        return "Vacuna{" + "fechaVacuna=" + fechaVacuna + ", nombreVacuna=" + nombreVacuna + ", idPaciente=" + idPaciente + '}';
+    }
 }

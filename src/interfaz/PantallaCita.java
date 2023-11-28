@@ -35,6 +35,7 @@ public class PantallaCita extends javax.swing.JFrame {
         initComponents();
         llenarComboBoxPacientes();
         mostrarCitasEnJTable(citass);
+        this.setLocationRelativeTo(null);//centrar el jframe
     }
 
     /**

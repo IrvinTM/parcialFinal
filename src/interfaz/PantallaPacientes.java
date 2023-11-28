@@ -23,6 +23,7 @@ public class PantallaPacientes extends javax.swing.JFrame {
     public PantallaPacientes() {
         initComponents();
         mostrarPacientes();
+        this.setLocationRelativeTo(null);//centrar el jframe
     }
 
     /**

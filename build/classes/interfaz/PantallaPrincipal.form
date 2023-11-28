@@ -60,9 +60,9 @@
                           <EmptySpace min="-2" pref="349" max="-2" attributes="0"/>
                           <Component id="vacunas_btn" min="-2" pref="233" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="349" max="-2" attributes="0"/>
-                          <Component id="salir_btn" min="-2" pref="233" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="375" max="-2" attributes="0"/>
+                          <Component id="salir_btn" min="-2" pref="167" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="396" max="32767" attributes="0"/>
@@ -74,17 +74,17 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="45" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="pacientes_btn" min="-2" pref="82" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                  <Component id="pacientes_btn" min="-2" pref="42" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="citas_btn" min="-2" pref="82" max="-2" attributes="0"/>
+                  <Component id="citas_btn" min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="expedientes_btn" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="expedientes_btn" min="-2" pref="82" max="-2" attributes="0"/>
+                  <Component id="vacunas_btn" min="-2" pref="49" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="vacunas_btn" min="-2" pref="82" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="salir_btn" min="-2" pref="82" max="-2" attributes="0"/>
-                  <EmptySpace pref="36" max="32767" attributes="0"/>
+                  <Component id="salir_btn" min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace pref="189" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -125,7 +125,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Liberation Sans" size="24" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Epedientes"/>
+            <Property name="text" type="java.lang.String" value="Expedientes"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="expedientes_btnActionPerformed"/>
